@@ -79,7 +79,7 @@ export default {
     async getThings(){
       const headers = { "Content-Type": "application/json", "Authorization": this.authHeader};
       try {
-        const response = await fetch("https://irt7i43wec.execute-api.us-east-1.amazonaws.com/things", { headers });
+        const response = await fetch("YOUR_URL_HERE/things", { headers });
         this.things = await response.json();
         this.dataLoaded = true;
       }
@@ -91,7 +91,7 @@ export default {
     async getThing(thingId){
       const headers = { "Content-Type": "application/json", "Authorization": this.authHeader};
       try {
-        const response = await fetch(`https://irt7i43wec.execute-api.us-east-1.amazonaws.com/things/${thingId}`, { headers });
+        const response = await fetch(`YOUR_URL_HERE/things/${thingId}`, { headers });
         this.oneThing = await response.json();
       }
       catch(e){
@@ -100,7 +100,7 @@ export default {
     },
     async postThing(){
       const headers = { "Content-Type": "application/json", "Authorization": this.authHeader};
-      const response = await fetch("https://irt7i43wec.execute-api.us-east-1.amazonaws.com/things", { 
+      const response = await fetch("YOUR_URL_HERE/things", { 
         method: "POST",
         headers,
         body: JSON.stringify(this.postData),
