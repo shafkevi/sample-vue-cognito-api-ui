@@ -1,5 +1,5 @@
 <template>
-  <div class="page-container md-layout-column" id="app">
+  <div class="page-container md-layout-column" id="app" :style="`background-color:${color}`">
 
     <amplify-authenticator v-if="authState!='signedin'">
       <amplify-sign-in header-text="Log in to manage your things!" slot="sign-in"></amplify-sign-in>
@@ -45,6 +45,7 @@ import { Auth } from 'aws-amplify';
 export default {
   name: "App",
   created() {
+    this.color = process.env.VUE_APP_COLOR;
     onAuthUIStateChange((authState, authData) => {
       this.authState = authState;
       this.user = authData;
@@ -57,6 +58,7 @@ export default {
   }, 
   data() {
     return {
+      color: undefined,
       user: undefined,
       authState: undefined,
       showSidepanel: false,
