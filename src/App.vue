@@ -1,7 +1,6 @@
 <template>
   <div class="page-container md-layout-column" id="app" :style="`background-color:${color}`">
     Color: {{color}}
-
     <amplify-authenticator v-if="authState!='signedin'">
       <amplify-sign-in header-text="Log in to manage your things!" slot="sign-in"></amplify-sign-in>
     </amplify-authenticator>
